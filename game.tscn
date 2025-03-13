@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://22dcrmnql36t"]
+
+[ext_resource type="Script" uid="uid://swddj22afj3x" path="res://scripts/Player.cs" id="1_e2o6t"]
+[ext_resource type="Texture2D" uid="uid://8vp5y7bw5cwq" path="res://icon.svg" id="2_feb5d"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fc0e3"]
+radius = 58.0086
+
+[node name="Main" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(401, 185)
+rotation = 1.00007
+scale = Vector2(1, 1)
+
+[node name="Obstacle" type="Sprite2D" parent="StaticBody2D"]
+scale = Vector2(1, 1)
+texture = ExtResource("2_feb5d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+scale = Vector2(1, 1)
+shape = SubResource("CircleShape2D_fc0e3")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+script = ExtResource("1_e2o6t")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+texture = ExtResource("2_feb5d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("CircleShape2D_fc0e3")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
